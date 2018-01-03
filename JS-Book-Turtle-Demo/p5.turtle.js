@@ -209,4 +209,4 @@ function Turtle() {
 		turtleSprite.position.x = target.x;
 		turtleSprite.position.y = target.y;
 	};
-};
+}
