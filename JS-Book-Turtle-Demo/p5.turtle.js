@@ -166,7 +166,7 @@ function Turtle() {
 		var targetAngle = angleInDegrees * Math.PI / 180.0;
 		var count = abs(int(targetAngle / this.stepAngle));
 		var dir = 1;
-		if(targetAngle < 0) {dir = -1};
+		if(targetAngle < 0) {dir = -1;}
 		
 		for(var i=0; i < count - 1; i++) {
 			this.angleInRadians += dir * this.stepAngle;
