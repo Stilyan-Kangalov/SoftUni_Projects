@@ -1,4 +1,6 @@
 # Speedy-Git & ShadowGit files #
 ####################
 Speedy--Git.bat
+*.bat
 Shadow--Git.rb
+*.rb
