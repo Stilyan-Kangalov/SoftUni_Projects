@@ -56,10 +56,14 @@ for(var i = 0; i < 4; i++) {
 }
 
 	// End of turtle code ------------------------------------------------------------
+
+	// Set the buttons
 	var buttonDraw = createButton("Draw");
 	buttonDraw.mousePressed(start);
 	var buttonReset = createButton("Reset");
 	buttonReset.mousePressed(resetSketch);
+	var buttonHide = createButton("Hide Turtle");
+	buttonHide.mousePressed(hideTurtle);
 }
 
 function resetSketch() {
@@ -69,6 +73,10 @@ function resetSketch() {
 	tPlane.fill(200);
 	tPlane.noStroke();
 	tPlane.rect(0, 0, width, height);
+}
+
+function hideTurtle() {
+	
 }
 
 
