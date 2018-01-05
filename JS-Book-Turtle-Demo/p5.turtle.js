@@ -9,6 +9,7 @@ var turtleSprite;
 var tPlane; // graphic plane for pen layer
 var started = false;
 
+
 function setup() {
 	var canvas = createCanvas(480, 360);
 	noLoop();
@@ -64,6 +65,7 @@ for(var i = 0; i < 4; i++) {
 	buttonReset.mousePressed(resetSketch);
 	var buttonHide = createButton("Hide Turtle");
 	buttonHide.mousePressed(hideTurtle);
+	buttonHide.mousePressed(changeName);
 }
 
 function resetSketch() {
@@ -73,10 +75,19 @@ function resetSketch() {
 	tPlane.fill(200);
 	tPlane.noStroke();
 	tPlane.rect(0, 0, width, height);
+	//location.reload();
 }
 
 function hideTurtle() {
-	
+	if (!turtleSprite.removed) {
+		turtleSprite.remove();
+	} else {
+		location.reload();
+	}
+}
+
+function changeName() {
+	this.html("Show Turtle");
 }
 
 
@@ -205,8 +216,11 @@ function Turtle() {
 		}
 		
 		// draw turtle by sprite
+		
 		turtleSprite.rotation = target.angleInRadians * -180 / Math.PI + 180;
 		turtleSprite.position.x = target.x;
 		turtleSprite.position.y = target.y;
+		
+		
 	};
 }
