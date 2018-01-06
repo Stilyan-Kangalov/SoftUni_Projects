@@ -30,7 +30,7 @@ function setup() {
 	
 	// Set delay for the animation and line width/color
 	turtle.x = 250;
-	turtle.y = 200;
+	turtle.y = 150;
 	turtle.step = 3;
 	turtle.lineWidth = 6;
 	
@@ -46,6 +46,10 @@ function setup() {
 	buttonHide.mousePressed(changeName);
 	var buttonHexagon = createButton("Hexagon");
 	buttonHexagon.mousePressed(drawHexagon);
+	var buttonStar = createButton("Star");
+	buttonStar.mousePressed(drawStar);
+	var buttonSpiral = createButton("Spiral");
+	buttonSpiral.mousePressed(drawSpiral);
 }
 
 function resetSketch() {
@@ -69,7 +73,7 @@ function draw() {
 	if(started){
 		if (button === 1) {
 			turtle.penColor = turtle.color.blue;
-				for(var i = 0; i <= 4; i++) {
+				for(var a = 0; a <= 4; a++) {
 					// Draw a equilateral triangle
 					turtle.penDown = true;
 					turtle.left(30);
@@ -92,14 +96,28 @@ function draw() {
 				}
 			} else if (button === 2) {
 				turtle.penColor = turtle.color.blue;
-			for(var p = 0; p <= 6; p++) {
-				// Draw a equilateral triangle
+			for(var b = 0; b <= 6; b++) {
 				turtle.penDown = true;
 				turtle.left(60);
 				turtle.forward(100);
-				console.log("1");
-				}				
 			}
+		} else if (button === 3) {
+			turtle.penColor = "#008000";
+			for(var c = 0; c <= 5; c++) {
+				turtle.penDown = true;
+				turtle.forward(200);
+				turtle.left(144);
+			}				
+		} else if (button === 4) {
+			turtle.penColor = "#008000";
+			for(var d = 0; d <= 20; d++) {
+				// Draw a equilateral triangle
+				turtle.penDown = true;
+				turtle.forward(d * 10);
+				turtle.left(60);
+			}
+		}
+	
 
 	background(240);
 	turtle.draw2(pathPointer);
@@ -118,17 +136,29 @@ function draw() {
 	// Playback turtle moving for animation.
 }
 
-function drawHexagon() {
+function start() {
+	button = 1;
+	started = true;
+	loop();
+ }
+
+ function drawHexagon() {
 	button = 2;
 	started = true;
 	loop();
 }
 
-function start(){
-	button = 1;
+function drawStar() {
+	button = 3;
 	started = true;
 	loop();
- }
+}
+
+function drawSpiral() {
+	button = 4;
+	started = true;
+	loop();
+}
 
 /** Turtle Data */
 function TBody() {
