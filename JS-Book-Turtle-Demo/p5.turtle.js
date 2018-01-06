@@ -8,14 +8,15 @@ var turtle;
 var turtleSprite;
 var tPlane; // graphic plane for pen layer
 var started = false;
+var button = 0;
 
 
 function setup() {
-	var canvas = createCanvas(480, 360);
+	var canvas = createCanvas(520, 360);
 	noLoop();
 	canvas.parent("p5Canvas");
 	
-	background(200);
+	background(240);
 
 	turtleSprite = createSprite(0, 0, 56, 64);
 	turtleSprite.addAnimation("moving", "assets/images/turtle_1.png", "assets/images/turtle_4.png");
@@ -26,36 +27,13 @@ function setup() {
 	// Start turtle code - recode turtle moving. -------------------------------------
 	// Set new instance of "Turtle" object and initial position
 	turtle = new Turtle();
-	turtle.x = 270;
-	turtle.y = 180;
-
-	// Set delay for the animation and line width/color 
+	
+	// Set delay for the animation and line width/color
+	turtle.x = 250;
+	turtle.y = 200;
 	turtle.step = 3;
 	turtle.lineWidth = 6;
-	turtle.penColor = turtle.color.blue;
-
-for(var i = 0; i < 4; i++) {
-    // Draw a equilateral triangle
-    turtle.penDown = true;
-    turtle.left(30);
-    turtle.forward(150);
-    turtle.left(120);
-    turtle.forward(150);
-    turtle.left(120);
-    turtle.forward(150);
-
-    // Draw a line in the triangle
-    turtle.left(-30);
-    turtle.penDown = false;
-    turtle.back(50);
-    turtle.penDown = true;
-    turtle.back(50);
-    turtle.penDown = false;
-    turtle.forward(100);
-    turtle.penDown = true;
-    turtle.left(30);
-}
-
+	
 	// End of turtle code ------------------------------------------------------------
 
 	// Set the buttons
@@ -66,16 +44,12 @@ for(var i = 0; i < 4; i++) {
 	var buttonHide = createButton("Hide Turtle");
 	buttonHide.mousePressed(hideTurtle);
 	buttonHide.mousePressed(changeName);
+	var buttonHexagon = createButton("Hexagon");
+	buttonHexagon.mousePressed(drawHexagon);
 }
 
 function resetSketch() {
-	noLoop();
-	background(200);
-	pathPointer = 0;
-	tPlane.fill(200);
-	tPlane.noStroke();
-	tPlane.rect(0, 0, width, height);
-	//location.reload();
+	location.reload();
 }
 
 function hideTurtle() {
@@ -93,7 +67,41 @@ function changeName() {
 
 function draw() {
 	if(started){
-	background(200);
+		if (button === 1) {
+			turtle.penColor = turtle.color.blue;
+				for(var i = 0; i <= 4; i++) {
+					// Draw a equilateral triangle
+					turtle.penDown = true;
+					turtle.left(30);
+					turtle.forward(150);
+					turtle.left(120);
+					turtle.forward(150);
+					turtle.left(120);
+					turtle.forward(150);
+				
+					// Draw a line in the triangle
+					turtle.left(-30);
+					turtle.penDown = false;
+					turtle.back(50);
+					turtle.penDown = true;
+					turtle.back(50);
+					turtle.penDown = false;
+					turtle.forward(100);
+					turtle.penDown = true;
+					turtle.left(30);
+				}
+			} else if (button === 2) {
+				turtle.penColor = turtle.color.blue;
+			for(var p = 0; p <= 6; p++) {
+				// Draw a equilateral triangle
+				turtle.penDown = true;
+				turtle.left(60);
+				turtle.forward(100);
+				console.log("1");
+				}				
+			}
+
+	background(240);
 	turtle.draw2(pathPointer);
 	image(tPlane);
 	drawSprites();
@@ -108,10 +116,16 @@ function draw() {
 	
 }
 	// Playback turtle moving for animation.
-	
+}
+
+function drawHexagon() {
+	button = 2;
+	started = true;
+	loop();
 }
 
 function start(){
+	button = 1;
 	started = true;
 	loop();
  }
@@ -215,12 +229,9 @@ function Turtle() {
 			tPlane.line(target.x, target.y, turtles_path[nextPointer].x, turtles_path[nextPointer].y);
 		}
 		
-		// draw turtle by sprite
-		
+		// draw turtle by sprite		
 		turtleSprite.rotation = target.angleInRadians * -180 / Math.PI + 180;
 		turtleSprite.position.x = target.x;
-		turtleSprite.position.y = target.y;
-		
-		
+		turtleSprite.position.y = target.y;		
 	};
 }
