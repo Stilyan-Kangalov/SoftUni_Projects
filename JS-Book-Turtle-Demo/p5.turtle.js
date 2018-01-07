@@ -10,9 +10,13 @@ var tPlane; // graphic plane for pen layer
 var started = false;
 var button = 0;
 
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
 
 function setup() {
-	var canvas = createCanvas(520, 360);
+	var canvas = createCanvas(520, 430);
 	noLoop();
 	canvas.parent("p5Canvas");
 	
@@ -29,8 +33,8 @@ function setup() {
 	turtle = new Turtle();
 	
 	// Set delay for the animation and line width/color
-	turtle.x = 250;
-	turtle.y = 150;
+	turtle.x = getRndInteger(220, 250);
+	turtle.y = getRndInteger(140, 180); // 270;
 	turtle.step = 3;
 	turtle.lineWidth = 6;
 	
@@ -50,6 +54,10 @@ function setup() {
 	buttonStar.mousePressed(drawStar);
 	var buttonSpiral = createButton("Spiral");
 	buttonSpiral.mousePressed(drawSpiral);
+	var buttonSun = createButton("Sun");
+	buttonSun.mousePressed(drawSun);
+	var buttonTriangle = createButton("Triangle");
+	buttonTriangle.mousePressed(drawTriangle);
 }
 
 function resetSketch() {
@@ -99,7 +107,7 @@ function draw() {
 			for(var b = 0; b <= 6; b++) {
 				turtle.penDown = true;
 				turtle.left(60);
-				turtle.forward(100);
+				turtle.forward(90);
 			}
 		} else if (button === 3) {
 			turtle.penColor = "#008000";
@@ -111,10 +119,24 @@ function draw() {
 		} else if (button === 4) {
 			turtle.penColor = "#008000";
 			for(var d = 0; d <= 20; d++) {
-				// Draw a equilateral triangle
 				turtle.penDown = true;
-				turtle.forward(d * 10);
+				turtle.forward(d * 5);
 				turtle.left(60);
+			}
+		} else if (button === 5) {
+			turtle.penColor = turtle.color.blue;
+			for(var e = 0; e <= 36; e++) {
+				turtle.penDown = true;
+				turtle.forward(200);
+				turtle.left(170);
+			}
+		} else if (button === 6) {
+			turtle.penColor = turtle.color.red;
+			for(var f = 0; f < 20; f++) {
+				turtle.penDown = true;
+				turtle.left(120);
+				turtle.forward(f * 10);
+				
 			}
 		}
 	
@@ -156,6 +178,18 @@ function drawStar() {
 
 function drawSpiral() {
 	button = 4;
+	started = true;
+	loop();
+}
+
+function drawSun() {
+	button = 5;
+	started = true;
+	loop();
+}
+
+function drawTriangle() {
+	button = 6;
 	started = true;
 	loop();
 }
