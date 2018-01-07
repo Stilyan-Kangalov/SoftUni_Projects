@@ -110,14 +110,14 @@ function draw() {
 				turtle.forward(90);
 			}
 		} else if (button === 3) {
-			turtle.penColor = "#008000";
+			turtle.penColor = turtle.color.green;
 			for(var c = 0; c <= 5; c++) {
 				turtle.penDown = true;
 				turtle.forward(200);
 				turtle.left(144);
 			}				
 		} else if (button === 4) {
-			turtle.penColor = "#008000";
+			turtle.penColor = turtle.color.green;
 			for(var d = 0; d <= 20; d++) {
 				turtle.penDown = true;
 				turtle.forward(d * 5);
@@ -218,7 +218,7 @@ function Turtle() {
 		gray: "#808080",
 		lightgray: "#C0C0C0",
 		red: "#ff0000",
-		green: "#00ff00",
+		green: "#008000",
 		blue: "#0000ff",
 		yellow: "#ffff00",
 		magenta: "#ff00ff",
