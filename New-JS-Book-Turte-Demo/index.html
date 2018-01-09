@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TurtleGraphics - Demo</title>
+<style>
+#main-frame {width: 650px;min-height: 470px;background-color: #f0f0f0;margin: 20px auto;border: 1px solid #000;}
+#header {height: 38px; background-color: white;}
+.title-box {float: left;padding-left: 10px;line-height: 36px; font-family: Verdana, Geneva, sans-serif;}
+button {margin: 12px 0 0 10px;padding: 8px;min-width: 100px;}
+#small-icon {margin: 3px;}button { display: block;} #p5Canvas {margin: 2px auto;}
+.turtlefield {z-index:555 !important;}
+</style>
+<link href="lib/qunit.css" rel="stylesheet">
+<script src="lib/jquery.js"></script>
+<script src="jquery-turtle.js"></script>
+</head>
+
+<body>
+<div id="main-frame">
+<div id="header">
+<img id="small-icon" class="title-box" src="lib/turtle-icon.png" alt="icon" />
+    <span class="title-box">TurtleGraphics - Demo</span>
+</div>
+<div id="elements">
+<button>Draw</button>
+<button>Reset</button>
+<button>Hide Turtle</button>
+<button>Hexagon</button>
+<button>Star</button>
+<button>Spiral</button>
+<button>Sun</button>
+<button>Triangle</button>
+<div id="p5Canvas"></div>
+</div>
+</div>
+<script>
+eval($.turtle());
+$('#turtle').css('turtlePosition', '-30 -270');
+for (let index = 0; index < 6; index++) {
+  $('#turtle').pen('blue', '5').rt(60).fd(100).css('turtleScale', '2');
+}
+
+</script>
+</body>
+
+</html>
