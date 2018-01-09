@@ -23,7 +23,7 @@ function setup() {
 	background(240);
 
 	turtleSprite = createSprite(0, 0, 56, 64);
-	turtleSprite.addAnimation("moving", "assets/images/turtle_1.png", "assets/images/turtle_4.png");
+	turtleSprite.addAnimation("moving", "https://raw.githubusercontent.com/Stilyan-Kangalov/SoftUni_Projects/master/JS-Book-Turtle-Demo/assets/images/turtle_1.png", "https://raw.githubusercontent.com/Stilyan-Kangalov/SoftUni_Projects/master/JS-Book-Turtle-Demo/assets/images/turtle_4.png");
 	turtleSprite.changeAnimation("moving");
 	
 	tPlane = createGraphics(width, height); // pen layer
