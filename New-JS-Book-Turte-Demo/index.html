@@ -23,24 +23,33 @@ button {margin: 12px 0 0 10px;padding: 8px;min-width: 100px;}
     <span class="title-box">TurtleGraphics - Demo</span>
 </div>
 <div id="elements">
-<button>Draw</button>
-<button>Reset</button>
-<button>Hide Turtle</button>
-<button>Hexagon</button>
-<button>Star</button>
-<button>Spiral</button>
-<button>Sun</button>
-<button>Triangle</button>
-<div id="p5Canvas"></div>
+<button id="justDraw">Draw</button>
+<button id="reset">Reset</button>
+<button id="hide">Hide Turtle</button>
+<button id="drawHexagon">Hexagon</button>
+<button id="drawStar">Star</button>
+<button id="drawSpiral">Spiral</button>
+<button id="drawSun">Sun</button>
+<button id="drawTriangle">Triangle</button>
+<div id="turtleCanvas"></div>
 </div>
 </div>
 <script>
 eval($.turtle());
-$('#turtle').css('turtlePosition', '-30 -270');
-for (let index = 0; index < 6; index++) {
-  $('#turtle').pen('blue', '5').rt(60).fd(100).css('turtleScale', '2');
-}
+$('#turtle').jump(10, 220).css('turtleScale', '2');
 
+$('#hide').click(function() {
+        $('#turtle').toggle();
+        $(this).text(function(i, text) {
+          return text === "Hide Turtle" ? "Show Turtle" : "Hide Turtle";
+      })
+});
+
+$('#drawHexagon').click(function() {
+    for (let index = 0; index < 6; index++) {
+        $('#turtle').pen('blue', '5').rt(60).fd(100);
+    }
+});
 </script>
 </body>
 
