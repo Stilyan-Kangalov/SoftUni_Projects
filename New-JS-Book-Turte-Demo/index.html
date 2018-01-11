@@ -4,11 +4,10 @@
 <meta charset="UTF-8">
 <title>TurtleGraphics - Demo</title>
 <style>
-#main-frame {width: 650px;min-height: 470px;background-color: #f0f0f0;margin: 20px auto;border: 1px solid #000;}
-#header {height: 38px; background-color: white;}
-.title-box {float: left;padding-left: 10px;line-height: 36px; font-family: Verdana, Geneva, sans-serif;}
-button {margin: 12px 0 0 10px;padding: 8px;min-width: 100px;}
-#small-icon {margin: 3px;}button { display: block;} #p5Canvas {margin: 2px auto;}
+body, #main-frame {background-color: #f0f0f0; text-align:center;}
+#header {background-color: white;}
+.title-box {padding-left: 10px;line-height: 36px; font-family: Verdana, Geneva, sans-serif;}
+#elements {text-align:center;}button {margin: 12px 6px 0 12px;padding: 8px;min-width: 100px; color: #323131;}
 .turtlefield {z-index:555 !important;}
 .turtle {opacity: initial !important;}
 </style>
@@ -37,7 +36,13 @@ button {margin: 12px 0 0 10px;padding: 8px;min-width: 100px;}
 </div>
 <script>
 eval($.turtle());
-$('#turtle').jump(10, 220).css('turtleScale', '2').css('turtleSpeed', '4');
+$('#turtle').css('turtleScale', '2').css('turtleSpeed', '4');
+
+function resetCanvas() {
+    cg();
+    home();
+    $('#turtle').css('turtleScale', '2').css('turtleSpeed', '4');
+}
 
 $('#reset').click(function() {
     window.location.reload();
@@ -45,7 +50,6 @@ $('#reset').click(function() {
 
 $('#justDraw').click(function() {
     cg();
-    $('#turtle').jump(30, -20);
     for (let index = 0; index < 4; index++) {
         $('#turtle').pen('blue', '5')
         .lt(30).fd(150)
@@ -62,40 +66,38 @@ $('#hide').click(function() {
 });
 
 $('#drawHexagon').click(function() {
-    cg();
-    $('#turtle').jump(-20, 40);
+    resetCanvas();
     for (let index = 0; index < 6; index++) {
         $('#turtle').pen('blue', '5').rt(60).fd(100);
     }
 });
 
 $('#drawStar').click(function() {
-    cg();
-    $('#turtle').jump(60, -90);
+    resetCanvas();
     for (let index = 0; index < 5; index++) {
         $('#turtle').pen('green', '5').fd(180).lt(144);
     }
 });
 
 $('#drawSpiral').click(function() {
-    cg();
-    $('#turtle').jump(30, 0).css('turtleSpeed', '6');
+    resetCanvas();
+    $('#turtle').css('turtleSpeed', '6');
     for (let index = 0; index < 30; index++) {
         $('#turtle').pen('green', '5').fd(index * 5).lt(60);
     }
 });
 
 $('#drawSun').click(function() {
-    cg();
-    $('#turtle').jump(30, -90).css('turtleSpeed', '8');
+    resetCanvas();
+    $('#turtle').css('turtleSpeed', '8');
     for (let index = 0; index < 36; index++) {
         $('#turtle').pen('blue', '5').fd(200).lt(170);
     }
 });
 
 $('#drawTriangle').click(function() {
-    cg();
-    $('#turtle').jump(40, 10).css('turtleSpeed', '10');
+    resetCanvas();
+    $('#turtle').css('turtleSpeed', '10');
     for (let p = 0; p < 3; p++) {
         for (let index = 0; index < 20; index++) {
         $('#turtle').pen('red', '5').lt(120).fd(index * 10);
