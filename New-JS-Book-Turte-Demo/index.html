@@ -1,39 +1,32 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>TurtleGraphics - Demo</title>
-<style>
-body, #main-frame {background-color: #f0f0f0; text-align:center;}
-#header {background-color: white;}
-.title-box {padding-left: 10px;line-height: 36px; font-family: Verdana, Geneva, sans-serif;}
-#elements {text-align:center;}button {margin: 12px 6px 0 12px;padding: 8px;min-width: 100px; color: #323131;}
-.turtlefield {z-index:555 !important;}
-.turtle {opacity: initial !important;}
-</style>
-<link href="lib/qunit.css" rel="stylesheet">
-<script src="lib/jquery.js"></script>
-<script src="jquery-turtle.js"></script>
+    <meta charset="UTF-8">
+    <title>TurtleGraphics - Demo</title>
+    <link rel="stylesheet" type="text/css" href="lib/style.css">
 </head>
 
 <body>
-<div id="main-frame">
-<div id="header">
-<img id="small-icon" class="title-box" src="lib/turtle-icon.png" alt="icon" />
-    <span class="title-box">TurtleGraphics - Demo</span>
-</div>
-<div id="elements">
-<button id="justDraw">Draw</button>
-<button id="reset">Reset</button>
-<button id="hide">Hide Turtle</button>
-<button id="drawHexagon">Hexagon</button>
-<button id="drawStar">Star</button>
-<button id="drawSpiral">Spiral</button>
-<button id="drawSun">Sun</button>
-<button id="drawTriangle">Triangle</button>
-<div id="turtleCanvas"></div>
-</div>
-</div>
+    <div id="main-frame">
+        <div id="header">
+            <img id="small-icon" class="title-box" src="lib/turtle-icon.png" alt="icon" />
+            <span class="title-box">TurtleGraphics - Demo</span>
+        </div>
+        <div id="elements">
+            <button id="justDraw">Draw</button>
+            <button id="reset">Reset</button>
+            <button id="hide">Hide Turtle</button>
+            <button id="drawHexagon">Hexagon</button>
+            <button id="drawStar">Star</button>
+            <button id="drawSpiral">Spiral</button>
+            <button id="drawSun">Sun</button>
+            <button id="drawTriangle">Triangle</button>
+            <div id="turtleCanvas"></div>
+        </div>
+    </div>
+<script src="lib/jquery.js"></script>
+<script src="lib/jquery-turtle.js"></script>
 <script>
 eval($.turtle());
 $('#turtle').css('turtleScale', '2').css('turtleSpeed', '4');
@@ -62,7 +55,7 @@ $('#hide').click(function() {
         $('#turtle').toggle();
         $(this).text(function(i, text) {
           return text === "Hide Turtle" ? "Show Turtle" : "Hide Turtle";
-      })
+      });
 });
 
 $('#drawHexagon').click(function() {
