@@ -74,7 +74,6 @@ $('#drawStar').click(function() {
 
 $('#drawSpiral').click(function() {
     resetCanvas();
-    $('#turtle').css('turtleSpeed', '6');
     for (let index = 0; index < 30; index++) {
         $('#turtle').pen('green', '5').fd(index * 5).lt(60);
     }
@@ -82,7 +81,6 @@ $('#drawSpiral').click(function() {
 
 $('#drawSun').click(function() {
     resetCanvas();
-    $('#turtle').css('turtleSpeed', '8');
     for (let index = 0; index < 36; index++) {
         $('#turtle').pen('blue', '5').fd(200).lt(170);
     }
@@ -90,7 +88,6 @@ $('#drawSun').click(function() {
 
 $('#drawTriangle').click(function() {
     resetCanvas();
-    $('#turtle').css('turtleSpeed', '10');
     for (let p = 0; p < 3; p++) {
         for (let index = 0; index < 20; index++) {
         $('#turtle').pen('red', '5').lt(120).fd(index * 10);
